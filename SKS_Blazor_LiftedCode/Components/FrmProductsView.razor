@@ -1,0 +1,51 @@
+@page "/frmProducts"
+@using Gap.Blazor.Components
+@rendermode RenderMode.InteractiveServer
+@using SKS.Components
+@inherits ComponentBase
+@namespace SKS.Components.Pages
+<WMFormComponent model="@this.model">
+    <WMToolStrip model="@this.model.Toolbar1">
+        <WMToolStripButton model="@this.model.Toolbar1_Buttons_Button1"></WMToolStripButton>
+        <WMToolStripButton model="@this.model.Toolbar1_Buttons_Button2"></WMToolStripButton>
+        <WMToolStripButton model="@this.model.Toolbar1_Buttons_Button3"></WMToolStripButton>
+        <WMToolStripButton model="@this.model.Toolbar1_Buttons_Button4"></WMToolStripButton>
+        <WMToolStripButton model="@this.model.Toolbar1_Buttons_Button5"></WMToolStripButton>
+        <WMToolStripButton model="@this.model.Toolbar1_Buttons_Button6"></WMToolStripButton>
+    </WMToolStrip>
+    <wm-stub data-missing-type="stub" #ImageList1 id="ImageList1" [model]="model.ImageList1" class="ImageList1" tabindex="0">ImageList1
+    </wm-stub>
+    <UpgradeHelpers.DB.ADO.Components.Pages.ADODataControlHelperView model="@this.model.dcProducts"></UpgradeHelpers.DB.ADO.Components.Pages.ADODataControlHelperView>
+    <WMGroupBoxComponent model="@this.model.Frame1">
+        <WMLabelComponent model="@this.model.Label15"></WMLabelComponent>
+        <WMLabelComponent model="@this.model.Label11"></WMLabelComponent>
+        <WMLabelComponent model="@this.model.Label6"></WMLabelComponent>
+        <WMLabelComponent model="@this.model.Label5"></WMLabelComponent>
+        <WMLabelComponent model="@this.model.Label4"></WMLabelComponent>
+        <WMLabelComponent model="@this.model.Label1"></WMLabelComponent>
+        <WMLabelComponent model="@this.model.Label2"></WMLabelComponent>
+        <WMLabelComponent model="@this.model.Label3"></WMLabelComponent>
+        <WMLabelComponent model="@this.model.Label7"></WMLabelComponent>
+        <WMTextBoxComponent model="@this.model.txtCategory"></WMTextBoxComponent>
+        <WMCheckBoxComponent model="@this.model.Check1"></WMCheckBoxComponent>
+        <WMTextBoxComponent model="@this.model._txtField_1"></WMTextBoxComponent>
+        <WMTextBoxComponent model="@this.model._txtField_2"></WMTextBoxComponent>
+        <WMTextBoxComponent model="@this.model._txtField_3"></WMTextBoxComponent>
+        <WMTextBoxComponent model="@this.model._txtField_4"></WMTextBoxComponent>
+        <WMComboBoxComponent model="@this.model.cmbCategory"></WMComboBoxComponent>
+        <WMTextBoxComponent model="@this.model._txtField_5"></WMTextBoxComponent>
+        <WMTextBoxComponent model="@this.model._txtField_0"></WMTextBoxComponent>
+        <WMTextBoxComponent model="@this.model._txtField_6"></WMTextBoxComponent>
+    </WMGroupBoxComponent>
+    <WMToolTipComponent model="@this.model.ToolTipMain"></WMToolTipComponent>
+</WMFormComponent>
+@code {
+    [Parameter]
+    public frmProducts model { get; set; }
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        model = model == null ? new frmProducts() : model;
+        model.View = this.GetType();
+    }
+}

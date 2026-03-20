@@ -1,0 +1,20 @@
+@page "/frmSplash"
+@using Gap.Blazor.Components
+@rendermode RenderMode.InteractiveServer
+@using SKS.Components
+@inherits ComponentBase
+@namespace SKS.Components.Pages
+<WMFormComponent model="@this.model">
+    <WMPictureBoxComponent model="@this.model.Image1"></WMPictureBoxComponent>
+    <WMToolTipComponent model="@this.model.ToolTipMain"></WMToolTipComponent>
+</WMFormComponent>
+@code {
+    [Parameter]
+    public frmSplash model { get; set; }
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        model = model == null ? new frmSplash() : model;
+        model.View = this.GetType();
+    }
+}

@@ -1,0 +1,43 @@
+@page "/frmUsersManage"
+@using Gap.Blazor.Components
+@rendermode RenderMode.InteractiveServer
+@using SKS.Components
+@inherits ComponentBase
+@namespace SKS.Components.Pages
+<WMFormComponent model="@this.model">
+    <wm-stub data-missing-type="stub" #listViewHelper1 id="listViewHelper1" [model]="model.listViewHelper1" class="listViewHelper1" tabindex="0">listViewHelper1
+    </wm-stub>
+    <WMPictureBoxComponent model="@this.model.Image1"></WMPictureBoxComponent>
+    <WMLabelComponent model="@this.model.Label4"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.Label19"></WMLabelComponent>
+    <WMLabelComponent model="@this.model._Label1_4"></WMLabelComponent>
+    <WMButtonComponent model="@this.model.cmdDelete"></WMButtonComponent>
+    <WMButtonComponent model="@this.model.cmdEdit"></WMButtonComponent>
+    <WMButtonComponent model="@this.model.cmdClose"></WMButtonComponent>
+    <WMGroupBoxComponent model="@this.model.Frame1">
+        <WMLabelComponent model="@this.model.lblId"></WMLabelComponent>
+        <WMLabelComponent model="@this.model._Label1_3"></WMLabelComponent>
+        <WMLabelComponent model="@this.model._Label1_1"></WMLabelComponent>
+        <WMLabelComponent model="@this.model._Label1_0"></WMLabelComponent>
+        <WMLabelComponent model="@this.model._Label1_2"></WMLabelComponent>
+        <WMComboBoxComponent model="@this.model.cboLevel"></WMComboBoxComponent>
+        <WMTextBoxComponent model="@this.model.txtUsername"></WMTextBoxComponent>
+        <WMTextBoxComponent model="@this.model.txtPassword"></WMTextBoxComponent>
+        <WMTextBoxComponent model="@this.model.txtFullname"></WMTextBoxComponent>
+    </WMGroupBoxComponent>
+    <WMPictureBoxComponent model="@this.model.ctrlLiner1"></WMPictureBoxComponent>
+    <WMButtonComponent model="@this.model.cmdSave"></WMButtonComponent>
+    <WMButtonComponent model="@this.model.cmdClear"></WMButtonComponent>
+    <WMListView model="@this.model.lstAccounts"></WMListView>
+    <WMToolTipComponent model="@this.model.ToolTipMain"></WMToolTipComponent>
+</WMFormComponent>
+@code {
+    [Parameter]
+    public frmUsersManage model { get; set; }
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        model = model == null ? new frmUsersManage() : model;
+        model.View = this.GetType();
+    }
+}

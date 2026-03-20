@@ -1,0 +1,29 @@
+@page "/frmSearch"
+@using Gap.Blazor.Components
+@rendermode RenderMode.InteractiveServer
+@using SKS.Components
+@inherits ComponentBase
+@namespace SKS.Components.Pages
+<WMFormComponent model="@this.model">
+    <WMLabelComponent model="@this.model.lblSrchBy"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.Label1"></WMLabelComponent>
+    <WMPictureBoxComponent model="@this.model.Image3"></WMPictureBoxComponent>
+    <WMLabelComponent model="@this.model.Label19"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.Label20"></WMLabelComponent>
+    <WMTextBoxComponent model="@this.model.txtSrchStr"></WMTextBoxComponent>
+    <WMComboBoxComponent model="@this.model.cboSrchBy"></WMComboBoxComponent>
+    <WMPictureBoxComponent model="@this.model.ctrlLiner1"></WMPictureBoxComponent>
+    <WMButtonComponent model="@this.model.cmdSearch"></WMButtonComponent>
+    <WMButtonComponent model="@this.model.cmdClose"></WMButtonComponent>
+    <WMToolTipComponent model="@this.model.ToolTipMain"></WMToolTipComponent>
+</WMFormComponent>
+@code {
+    [Parameter]
+    public frmSearch model { get; set; }
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        model = model == null ? new frmSearch() : model;
+        model.View = this.GetType();
+    }
+}

@@ -1,0 +1,27 @@
+@page "/frmAbout"
+@using Gap.Blazor.Components
+@rendermode RenderMode.InteractiveServer
+@using SKS.Components
+@inherits ComponentBase
+@namespace SKS.Components.Pages
+<WMFormComponent model="@this.model">
+    <WMLabelComponent model="@this.model.lblDisclaimer"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.lblVersion"></WMLabelComponent>
+    <WMLabelComponent model="@this.model._Line1_0"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.lblTitle"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.lblDescription"></WMLabelComponent>
+    <WMLabelComponent model="@this.model._Line1_1"></WMLabelComponent>
+    <WMButtonComponent model="@this.model.cmdOK"></WMButtonComponent>
+    <WMPictureBoxComponent model="@this.model.picIcon"></WMPictureBoxComponent>
+    <WMToolTipComponent model="@this.model.ToolTipMain"></WMToolTipComponent>
+</WMFormComponent>
+@code {
+    [Parameter]
+    public frmAbout model { get; set; }
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        model = model == null ? new frmAbout() : model;
+        model.View = this.GetType();
+    }
+}

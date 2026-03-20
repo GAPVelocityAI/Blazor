@@ -1,0 +1,47 @@
+@page "/frmReceptionApproval"
+@using Gap.Blazor.Components
+@rendermode RenderMode.InteractiveServer
+@using SKS.Components
+@inherits ComponentBase
+@namespace SKS.Components.Pages
+<WMFormComponent model="@this.model">
+    <WMGroupBoxComponent model="@this.model.Frame1">
+        <WMLabelComponent model="@this.model.Label2"></WMLabelComponent>
+        <WMLabelComponent model="@this.model.Label4"></WMLabelComponent>
+        <WMLabelComponent model="@this.model.Label3"></WMLabelComponent>
+        <WMLabelComponent model="@this.model.Label6"></WMLabelComponent>
+        <WMLabelComponent model="@this.model.Label1"></WMLabelComponent>
+        <WMLabelComponent model="@this.model.Label8"></WMLabelComponent>
+        <WMLabelComponent model="@this.model.Label5"></WMLabelComponent>
+        <WMDateTimePicker model="@this.model.dtTo"></WMDateTimePicker>
+        <WMDateTimePicker model="@this.model.dtFrom"></WMDateTimePicker>
+        <WMTextBoxComponent model="@this.model.txtProviderName"></WMTextBoxComponent>
+        <WMButtonComponent model="@this.model.cmdProviders"></WMButtonComponent>
+        <WMTextBoxComponent model="@this.model.txtContactName"></WMTextBoxComponent>
+        <WMTextBoxComponent model="@this.model.txtContactLastName"></WMTextBoxComponent>
+        <WMTextBoxComponent model="@this.model.txtOrderID"></WMTextBoxComponent>
+        <WMTextBoxComponent model="@this.model.txtProductID"></WMTextBoxComponent>
+        <WMCheckBoxComponent model="@this.model.chkFrom"></WMCheckBoxComponent>
+        <WMCheckBoxComponent model="@this.model.chkTo"></WMCheckBoxComponent>
+        <WMComboBoxComponent model="@this.model.cmbStatus"></WMComboBoxComponent>
+    </WMGroupBoxComponent>
+    <WMButtonComponent model="@this.model.cmdClose"></WMButtonComponent>
+    <WMButtonComponent model="@this.model.cmdCancel"></WMButtonComponent>
+    <WMStatusStrip model="@this.model.sbStatusBar">
+        <WMToolStripStatusLabel model="@this.model.sbStatusBar_Panels_Panel1"></WMToolStripStatusLabel>
+    </WMStatusStrip>
+    <WMDataGridViewFlexComponent model="@this.model.fgOrders"></WMDataGridViewFlexComponent>
+    <WMButtonComponent model="@this.model.cmdInfo"></WMButtonComponent>
+    <WMButtonComponent model="@this.model.cmdApprove"></WMButtonComponent>
+    <WMToolTipComponent model="@this.model.ToolTipMain"></WMToolTipComponent>
+</WMFormComponent>
+@code {
+    [Parameter]
+    public frmReceptionApproval model { get; set; }
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        model = model == null ? new frmReceptionApproval() : model;
+        model.View = this.GetType();
+    }
+}

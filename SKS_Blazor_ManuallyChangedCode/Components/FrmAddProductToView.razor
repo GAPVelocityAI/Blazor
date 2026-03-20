@@ -1,0 +1,38 @@
+@page "/frmAddProductTo"
+@using Gap.Blazor.Components
+@rendermode RenderMode.InteractiveServer
+@using SKS.Components
+@inherits ComponentBase
+@namespace SKS.Components.Pages
+<WMFormComponent model="@this.model">
+    <wm-stub data-missing-type="stub" #listViewHelper1 id="listViewHelper1" [model]="model.listViewHelper1" class="listViewHelper1" tabindex="0">listViewHelper1
+    </wm-stub>
+    <WMLabelComponent model="@this.model.lblProductsRelated"></WMLabelComponent>
+    <WMListView model="@this.model.lvProductsBy"></WMListView>
+    <WMGroupBoxComponent model="@this.model.Frame1">
+        <WMLabelComponent model="@this.model.Label5"></WMLabelComponent>
+        <WMLabelComponent model="@this.model.Label4"></WMLabelComponent>
+        <WMListView model="@this.model.lvProducts"></WMListView>
+        <WMTextBoxComponent model="@this.model.txtCode"></WMTextBoxComponent>
+        <WMTextBoxComponent model="@this.model.txtName"></WMTextBoxComponent>
+        <WMButtonComponent model="@this.model.cmdProducts"></WMButtonComponent>
+    </WMGroupBoxComponent>
+    <WMButtonComponent model="@this.model.cmdSave"></WMButtonComponent>
+    <WMButtonComponent model="@this.model.cmdClose"></WMButtonComponent>
+    <WMStatusStrip model="@this.model.sbStatusBar">
+        <WMToolStripStatusLabel model="@this.model.sbStatusBar_Panels_Panel1"></WMToolStripStatusLabel>
+    </WMStatusStrip>
+    <WMButtonComponent model="@this.model.cmdRemove"></WMButtonComponent>
+    <WMCheckBoxComponent model="@this.model.chkAll"></WMCheckBoxComponent>
+    <WMToolTipComponent model="@this.model.ToolTipMain"></WMToolTipComponent>
+</WMFormComponent>
+@code {
+    [Parameter]
+    public frmAddProductTo model { get; set; }
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        model = model == null ? new frmAddProductTo() : model;
+        model.View = this.GetType();
+    }
+}

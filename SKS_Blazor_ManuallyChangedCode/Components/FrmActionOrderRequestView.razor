@@ -1,0 +1,61 @@
+@page "/frmActionOrderRequest"
+@using Gap.Blazor.Components
+@rendermode RenderMode.InteractiveServer
+@using SKS.Components
+@inherits ComponentBase
+@namespace SKS.Components.Pages
+<WMFormComponent model="@this.model">
+    <WMLabelComponent model="@this.model.Label6"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.Label8"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.Label9"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.Label10"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.Label11"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.Label12"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.lblChanged"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.Label4"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.lblChangedBy"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.Label19"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.Label3"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.Label7"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.Label2"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.Label13"></WMLabelComponent>
+    <WMGroupBoxComponent model="@this.model.Frame2">
+        <WMLabelComponent model="@this.model.Label1"></WMLabelComponent>
+        <WMLabelComponent model="@this.model.Label5"></WMLabelComponent>
+        <WMTextBoxComponent model="@this.model.txtCustomerCompany"></WMTextBoxComponent>
+        <WMTextBoxComponent model="@this.model.txtCustomerContact"></WMTextBoxComponent>
+    </WMGroupBoxComponent>
+    <WMButtonComponent model="@this.model.cmdClose"></WMButtonComponent>
+    <WMButtonComponent model="@this.model.cmdCancel"></WMButtonComponent>
+    <WMStatusStrip model="@this.model.sbStatusBar">
+        <WMToolStripStatusLabel model="@this.model.sbStatusBar_Panels_Panel1"></WMToolStripStatusLabel>
+    </WMStatusStrip>
+    <WMDataGridViewFlexComponent model="@this.model.fgDetails"></WMDataGridViewFlexComponent>
+    <WMTextBoxComponent model="@this.model.txtEntry"></WMTextBoxComponent>
+    <WMTextBoxComponent model="@this.model.txtSalesTax"></WMTextBoxComponent>
+    <WMTextBoxComponent model="@this.model.txtFreightCharge"></WMTextBoxComponent>
+    <WMTextBoxComponent model="@this.model.txtTotalTax"></WMTextBoxComponent>
+    <WMTextBoxComponent model="@this.model.txtTotal"></WMTextBoxComponent>
+    <WMTextBoxComponent model="@this.model.txtSubTotal"></WMTextBoxComponent>
+    <WMTextBoxComponent model="@this.model.txtNotes"></WMTextBoxComponent>
+    <WMTextBoxComponent model="@this.model.txtOrderID"></WMTextBoxComponent>
+    <WMTextBoxComponent model="@this.model.txtChanged"></WMTextBoxComponent>
+    <WMTextBoxComponent model="@this.model.txtChangedBy"></WMTextBoxComponent>
+    <WMTextBoxComponent model="@this.model.txtReceived"></WMTextBoxComponent>
+    <WMTextBoxComponent model="@this.model.txtStatus"></WMTextBoxComponent>
+    <WMButtonComponent model="@this.model.cmdApprove"></WMButtonComponent>
+    <WMTextBoxComponent model="@this.model.txtReceivedBy"></WMTextBoxComponent>
+    <WMTextBoxComponent model="@this.model.txtRequiredBy"></WMTextBoxComponent>
+    <WMTextBoxComponent model="@this.model.txtPromisedBy"></WMTextBoxComponent>
+    <WMToolTipComponent model="@this.model.ToolTipMain"></WMToolTipComponent>
+</WMFormComponent>
+@code {
+    [Parameter]
+    public frmActionOrderRequest model { get; set; }
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        model = model == null ? new frmActionOrderRequest() : model;
+        model.View = this.GetType();
+    }
+}

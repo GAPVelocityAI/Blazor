@@ -1,0 +1,61 @@
+@page "/frmMain"
+@using Gap.Blazor.Components
+@rendermode RenderMode.InteractiveServer
+@using SKS.Components
+@inherits ComponentBase
+@namespace SKS.Components.Pages
+<WMFormComponent model="@this.model">
+    <WMStatusStrip model="@this.model.sbStatusBar">
+        <WMToolStripStatusLabel model="@this.model.sbStatusBar_Panels_Panel1"></WMToolStripStatusLabel>
+        <WMToolStripStatusLabel model="@this.model.sbStatusBar_Panels_Panel2"></WMToolStripStatusLabel>
+        <WMToolStripStatusLabel model="@this.model.sbStatusBar_Panels_Panel3"></WMToolStripStatusLabel>
+    </WMStatusStrip>
+    <WMMenuStrip model="@this.model.MainMenu1">
+        <WMToolStripMenuItem model="@this.model.mnuFile">
+            <WMToolStripMenuItem model="@this.model.mnuCustomer">
+            </WMToolStripMenuItem>
+            <WMToolStripMenuItem model="@this.model.mnuProviders">
+            </WMToolStripMenuItem>
+            <WMToolStripMenuItem model="@this.model.mnuExit">
+            </WMToolStripMenuItem>
+        </WMToolStripMenuItem>
+        <WMToolStripMenuItem model="@this.model.mnuOrders">
+            <WMToolStripMenuItem model="@this.model.mnuCreateOrderRequest">
+            </WMToolStripMenuItem>
+            <WMToolStripMenuItem model="@this.model.mnuOrderRequestsApproval">
+            </WMToolStripMenuItem>
+            <WMToolStripSeparator model="@this.model.lExit2"></WMToolStripSeparator>
+            <WMToolStripMenuItem model="@this.model.mnuCreateOrderReception">
+            </WMToolStripMenuItem>
+            <WMToolStripMenuItem model="@this.model.mnuOrderReceptionsApproval">
+            </WMToolStripMenuItem>
+        </WMToolStripMenuItem>
+        <WMToolStripMenuItem model="@this.model.mnuMainInventory">
+            <WMToolStripMenuItem model="@this.model.mnuAddStockManually">
+            </WMToolStripMenuItem>
+            <WMToolStripMenuItem model="@this.model.mnuAdjustStockManually">
+            </WMToolStripMenuItem>
+        </WMToolStripMenuItem>
+        <WMToolStripMenuItem model="@this.model.mnuAccounts">
+            <WMToolStripMenuItem model="@this.model.mnuProducts">
+            </WMToolStripMenuItem>
+            <WMToolStripMenuItem model="@this.model.mnuSecurity">
+            </WMToolStripMenuItem>
+        </WMToolStripMenuItem>
+        <WMToolStripMenuItem model="@this.model.mnuHelp">
+            <WMToolStripMenuItem model="@this.model.mnuAbout">
+            </WMToolStripMenuItem>
+        </WMToolStripMenuItem>
+    </WMMenuStrip>
+    <WMToolTipComponent model="@this.model.ToolTipMain"></WMToolTipComponent>
+</WMFormComponent>
+@code {
+    [Parameter]
+    public frmMain model { get; set; }
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        model = model == null ? new frmMain() : model;
+        model.View = this.GetType();
+    }
+}

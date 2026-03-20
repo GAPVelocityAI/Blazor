@@ -1,0 +1,58 @@
+@page "/frmOrderReception"
+@using Gap.Blazor.Components
+@rendermode RenderMode.InteractiveServer
+@using SKS.Components
+@inherits ComponentBase
+@namespace SKS.Components.Pages
+<WMFormComponent model="@this.model">
+    <wm-stub data-missing-type="stub" #listViewHelper1 id="listViewHelper1" [model]="model.listViewHelper1" class="listViewHelper1" tabindex="0">listViewHelper1
+    </wm-stub>
+    <WMLabelComponent model="@this.model.Label6"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.Label8"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.Label9"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.Label10"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.Label11"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.Label12"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.Label7"></WMLabelComponent>
+    <WMGroupBoxComponent model="@this.model.Frame2">
+        <WMLabelComponent model="@this.model.Label1"></WMLabelComponent>
+        <WMLabelComponent model="@this.model.Label5"></WMLabelComponent>
+        <WMTextBoxComponent model="@this.model.txtProviderCompany"></WMTextBoxComponent>
+        <WMTextBoxComponent model="@this.model.txtProviderContact"></WMTextBoxComponent>
+    </WMGroupBoxComponent>
+    <WMGroupBoxComponent model="@this.model.Frame1">
+        <WMLabelComponent model="@this.model.Label2"></WMLabelComponent>
+        <WMLabelComponent model="@this.model.Label4"></WMLabelComponent>
+        <WMLabelComponent model="@this.model.Label3"></WMLabelComponent>
+        <WMListView model="@this.model.lvProviders"></WMListView>
+        <WMButtonComponent model="@this.model.cmdProviders"></WMButtonComponent>
+        <WMTextBoxComponent model="@this.model.txtContactName"></WMTextBoxComponent>
+        <WMTextBoxComponent model="@this.model.txtContactLastName"></WMTextBoxComponent>
+        <WMTextBoxComponent model="@this.model.txtProviderName"></WMTextBoxComponent>
+    </WMGroupBoxComponent>
+    <WMButtonComponent model="@this.model.cmdAddProducts"></WMButtonComponent>
+    <WMButtonComponent model="@this.model.cmdClose"></WMButtonComponent>
+    <WMButtonComponent model="@this.model.cmdSave"></WMButtonComponent>
+    <WMStatusStrip model="@this.model.sbStatusBar">
+        <WMToolStripStatusLabel model="@this.model.sbStatusBar_Panels_Panel1"></WMToolStripStatusLabel>
+    </WMStatusStrip>
+    <WMDataGridViewFlexComponent model="@this.model.fgProducts"></WMDataGridViewFlexComponent>
+    <WMTextBoxComponent model="@this.model.txtEntry"></WMTextBoxComponent>
+    <WMTextBoxComponent model="@this.model.txtSalesTax"></WMTextBoxComponent>
+    <WMTextBoxComponent model="@this.model.txtFreightCharge"></WMTextBoxComponent>
+    <WMTextBoxComponent model="@this.model.txtTotalTax"></WMTextBoxComponent>
+    <WMTextBoxComponent model="@this.model.txtTotal"></WMTextBoxComponent>
+    <WMTextBoxComponent model="@this.model.txtSubTotal"></WMTextBoxComponent>
+    <WMTextBoxComponent model="@this.model.txtNotes"></WMTextBoxComponent>
+    <WMToolTipComponent model="@this.model.ToolTipMain"></WMToolTipComponent>
+</WMFormComponent>
+@code {
+    [Parameter]
+    public frmOrderReception model { get; set; }
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        model = model == null ? new frmOrderReception() : model;
+        model.View = this.GetType();
+    }
+}

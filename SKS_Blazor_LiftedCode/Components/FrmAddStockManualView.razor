@@ -1,0 +1,49 @@
+@page "/frmAddStockManual"
+@using Gap.Blazor.Components
+@rendermode RenderMode.InteractiveServer
+@using SKS.Components
+@inherits ComponentBase
+@namespace SKS.Components.Pages
+<WMFormComponent model="@this.model">
+    <wm-stub data-missing-type="stub" #listViewHelper1 id="listViewHelper1" [model]="model.listViewHelper1" class="listViewHelper1" tabindex="0">listViewHelper1
+    </wm-stub>
+    <WMLabelComponent model="@this.model.Label3"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.Label2"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.Label1"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.Label6"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.Label7"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.Label8"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.Label9"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.Label10"></WMLabelComponent>
+    <WMLabelComponent model="@this.model.lblNewQuantity"></WMLabelComponent>
+    <WMListView model="@this.model.lvProducts"></WMListView>
+    <WMGroupBoxComponent model="@this.model.Frame1">
+        <WMLabelComponent model="@this.model.Label5"></WMLabelComponent>
+        <WMLabelComponent model="@this.model.Label4"></WMLabelComponent>
+        <WMTextBoxComponent model="@this.model.txtCode"></WMTextBoxComponent>
+        <WMTextBoxComponent model="@this.model.txtName"></WMTextBoxComponent>
+        <WMButtonComponent model="@this.model.cmdProducts"></WMButtonComponent>
+    </WMGroupBoxComponent>
+    <WMTextBoxComponent model="@this.model._txtValues_0"></WMTextBoxComponent>
+    <WMTextBoxComponent model="@this.model._txtValues_1"></WMTextBoxComponent>
+    <WMTextBoxComponent model="@this.model._txtValues_2"></WMTextBoxComponent>
+    <WMTextBoxComponent model="@this.model.txtQuantityPerUnit"></WMTextBoxComponent>
+    <WMTextBoxComponent model="@this.model.txtProductName"></WMTextBoxComponent>
+    <WMTextBoxComponent model="@this.model.txtUnit"></WMTextBoxComponent>
+    <WMStatusStrip model="@this.model.sbStatusBar">
+        <WMToolStripStatusLabel model="@this.model.sbStatusBar_Panels_Panel1"></WMToolStripStatusLabel>
+    </WMStatusStrip>
+    <WMButtonComponent model="@this.model.cmdClose"></WMButtonComponent>
+    <WMButtonComponent model="@this.model.cmdSave"></WMButtonComponent>
+    <WMToolTipComponent model="@this.model.ToolTipMain"></WMToolTipComponent>
+</WMFormComponent>
+@code {
+    [Parameter]
+    public frmAddStockManual model { get; set; }
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        model = model == null ? new frmAddStockManual() : model;
+        model.View = this.GetType();
+    }
+}
